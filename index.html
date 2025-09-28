@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mimmox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="main-header">
+    <a href="https://mimmox.com" class="logo-link">
+      <img src="images/mimmox.png" alt="Mimmox Logo" class="studio-logo" id="logo-normal">
+      <img src="images/mimmox_m.png" alt="Mimmox Logo Square" class="studio-logo" id="logo-mobile">
+    </a>
+    <div class="social-icons">
+      <a href="https://x.com/mimmoxgames" target="_blank"><img src="images/x.png" alt="X" /></a>
+      <a href="https://bsky.app/profile/mimmox.bsky.social" target="_blank"><img src="images/bluesky.png" alt="Bluesky" /></a>
+      <a href="https://www.tiktok.com/@mimmoxgames" target="_blank"><img src="images/tiktok.png" alt="Tiktok" /></a>
+      <a href="https://www.instagram.com/mimmoxgames/" target="_blank"><img src="images/instagram.png" alt="Instagram" /></a>
+    </div>
+  </header>
+  <main class="hero-container">
+    <div class="hero-content">
+      <img src="images/logo.png" alt="UMAMI Logo" class="game-logo" />
+      <div class="hero-buttons">
+        <a href="https://store.steampowered.com/app/3669360/UMAMI/?utm_source=mimmox" target="_blank" class="btn bounce">
+          <img src="images/wishlist.png" alt="Wishlist" />
+        </a>
+        <a href="https://mimmox.com/presskit" target="_blank" class="btn bounce">
+          <img src="images/presskit.png" alt="Presskit" />
+        </a>
+        <a href="https://discord.gg/BnA8CsPAtB" target="_blank" class="btn bounce">
+          <img src="images/discord.png" alt="Discord" />
+        </a>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+  document.querySelectorAll('.btn img').forEach((btnImg) => {
+    btnImg.addEventListener('mouseenter', () => {
+      btnImg.classList.remove('animate-out');
+      btnImg.classList.add('animate-in');
+    });
+    btnImg.addEventListener('mouseleave', () => {
+      btnImg.classList.remove('animate-in');
+      btnImg.classList.add('animate-out');
+    });
+  });
+</script>
+
+</body>
+</html>
