@@ -20,7 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 36px; /* Más espacio horizontal para logo y redes */
+  padding: 0 36px;
   position: relative;
 }
 
@@ -28,28 +28,31 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 8px; /* Padding extra izquierdo solo para logo */
+  padding-left: 8px;
 }
 
-/* LOGOS HEADER - MAX SCALE */
+/* LOGOS HEADER */
 .studio-logo {
   height: 33px;
   width: auto;
   display: block;
 }
 
-#logo-normal { display: block; }
-#logo-mobile { 
-  display: none; 
+#logo-normal {
+  display: block;
+}
+
+#logo-mobile {
+  display: none;
   max-height: 40px;
   width: auto;
 }
 
-/* SOCIAL MEDIA - MAX SCALE */
+/* SOCIAL MEDIA */
 .social-icons {
   display: flex;
   gap: 16px;
-  padding-right: 8px; /* Extra padding derecha para los iconos sociales */
+  padding-right: 8px;
 }
 
 .social-icons img {
@@ -71,9 +74,10 @@ body {
   flex-direction: column;
   align-items: center;
   background: none;
+  padding: 0 16px;
 }
 
-/* HERO SPACING FROM TOP */
+/* HERO CONTENT */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -87,9 +91,10 @@ body {
   margin-bottom: 36px;
   margin-top: 0;
   max-width: 85vw;
+  height: auto;
 }
 
-/* COLUMN BUTTONS */
+/* BUTTONS */
 .hero-buttons {
   display: flex;
   flex-direction: column;
@@ -105,7 +110,7 @@ body {
   height: auto;
 }
 
-/* Animaciones controladas por JS con clases */
+/* Animaciones */
 .animate-in {
   animation: double-zoom-bounce 0.6s ease-in-out forwards;
 }
@@ -114,7 +119,6 @@ body {
   animation: double-zoom-bounce-reverse 0.6s ease-in-out forwards;
 }
 
-/* Keyframes de entrada */
 @keyframes double-zoom-bounce {
   0% { transform: scale(1); }
   25% { transform: scale(1.12); }
@@ -123,7 +127,6 @@ body {
   100% { transform: scale(1.12); }
 }
 
-/* Keyframes de salida */
 @keyframes double-zoom-bounce-reverse {
   0% { transform: scale(1.12); }
   25% { transform: scale(1.14); }
@@ -132,7 +135,7 @@ body {
   100% { transform: scale(1); }
 }
 
-/* RESPONSIVE MOBILE STYLES */
+/* RESPONSIVE MOBILE */
 @media (max-width: 650px) {
   body {
     background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom)) !important;
@@ -154,6 +157,7 @@ body {
     max-width: 85vw;
     margin-top: 0;
     margin-bottom: 28px;
+    height: auto;
   }
   .hero-buttons {
     flex-direction: column;
@@ -161,15 +165,21 @@ body {
     margin-top: 0;
     align-items: center;
   }
-  #logo-normal { display: none; }
-  #logo-mobile { display: block; }
+  #logo-normal {
+    display: none !important;
+  }
+  #logo-mobile {
+    display: block !important;
+    max-width: 90px;
+    height: auto;
+  }
   .studio-logo {
     height: 33px;
     width: auto;
   }
   .social-icons img {
-    height: 28px;
-    width: auto;
+    max-width: 28px !important;
+    height: auto !important;
   }
   .main-header {
     padding: 0 24px;
@@ -181,6 +191,7 @@ body {
     padding-right: 6px;
   }
   .btn img {
-    max-width: 50px;
+    max-width: 48px !important;
+    height: auto !important;
   }
 }
