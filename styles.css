@@ -11,6 +11,8 @@ body {
   font-family: 'Inter', Arial, sans-serif;
   min-height: 100vh;
   background: url('images/background.png') center/cover no-repeat;
+  margin: 0;
+  padding: 0;
 }
 
 /* HEADER */
@@ -136,7 +138,7 @@ body {
 }
 
 /* RESPONSIVE MOBILE */
-@media (max-width: 650px) {
+@media only screen and (max-width: 650px) and (orientation: portrait) {
   body {
     background-image: none !important;
     background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom)) !important;
@@ -196,4 +198,3 @@ body {
     height: auto !important;
   }
 }
-
