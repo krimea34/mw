@@ -157,7 +157,9 @@ body {
     align-items: center;
   }
   .hero-buttons .btn img {
-    max-width: 80vw; /* Ensure buttons fit mobile screen */
+    max-width: 100vw; /* Ensure buttons scale to full viewport width */
+    width: 100%; /* Ensure buttons take full available width */
+    height: auto; /* Maintain aspect ratio */
   }
   #logo-normal { display: none; }
   #logo-mobile { display: block; }
