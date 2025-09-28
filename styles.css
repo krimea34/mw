@@ -112,16 +112,16 @@ body {
 /* Keyframes de entrada */
 @keyframes double-zoom-bounce {
   0% { transform: scale(1); }
-  25% { transform: scale(1.12); }
-  50% { transform: scale(1.09); }
-  75% { transform: scale(1.13); }
-  100% { transform: scale(1.12); }
+  25% { transform: scale(1.10); }
+  50% { transform: scale(1.07); }
+  75% { transform: scale(1.11); }
+  100% { transform: scale(1.10); }
 }
 
 /* Keyframes de salida */
 @keyframes double-zoom-bounce-reverse {
-  0% { transform: scale(1.12); }
-  25% { transform: scale(1.14); }
+  0% { transform: scale(1.10); }
+  25% { transform: scale(1.12); }
   67% { transform: scale(0.99); }
   85% { transform: scale(1.01); }
   100% { transform: scale(1); }
