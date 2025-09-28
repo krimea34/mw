@@ -148,7 +148,7 @@ body {
   .game-logo {
     max-width: 85vw; /* Ensure game logo fits mobile screen */
     margin-top: 0;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
   .hero-buttons {
     flex-direction: column;
