@@ -38,7 +38,12 @@ body {
   display: block;
 }
 
-#logo-mobile { display: none; }
+#logo-normal { display: block; }
+#logo-mobile { 
+  display: none; 
+  max-height: 40px;
+  width: auto;
+}
 
 /* SOCIAL MEDIA - MAX SCALE */
 .social-icons {
@@ -81,6 +86,7 @@ body {
   display: block;
   margin-bottom: 36px;
   margin-top: 0;
+  max-width: 85vw;
 }
 
 /* COLUMN BUTTONS */
@@ -95,6 +101,8 @@ body {
 .btn img {
   display: block;
   transition: transform 0.18s ease-in-out;
+  max-width: 60px;
+  height: auto;
 }
 
 /* Animaciones controladas por JS con clases */
@@ -122,11 +130,12 @@ body {
   67% { transform: scale(0.99); }
   85% { transform: scale(1.01); }
   100% { transform: scale(1); }
+}
 
 /* RESPONSIVE MOBILE STYLES */
 @media (max-width: 650px) {
   body {
-    background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom));
+    background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom)) !important;
   }
   .hero-container {
     min-height: calc(100vh - 55px);
@@ -170,5 +179,8 @@ body {
   }
   .social-icons {
     padding-right: 6px;
+  }
+  .btn img {
+    max-width: 50px;
   }
 }
