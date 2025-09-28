@@ -11,8 +11,6 @@ body {
   font-family: 'Inter', Arial, sans-serif;
   min-height: 100vh;
   background: url('images/background.png') center/cover no-repeat;
-  margin: 0;
-  padding: 0;
 }
 
 /* HEADER */
@@ -22,7 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 36px;
+  padding: 0 36px; /* Más espacio horizontal para logo y redes */
   position: relative;
 }
 
@@ -30,31 +28,24 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 8px;
+  padding-left: 8px; /* Padding extra izquierdo solo para logo */
 }
 
-/* LOGOS HEADER */
+/* LOGOS HEADER - MAX SCALE */
 .studio-logo {
   height: 33px;
   width: auto;
   display: block;
 }
 
-#logo-normal {
-  display: block;
-}
+#logo-normal { display: block; }
+#logo-mobile { display: none; }
 
-#logo-mobile {
-  display: none;
-  max-height: 40px;
-  width: auto;
-}
-
-/* SOCIAL MEDIA */
+/* SOCIAL MEDIA - MAX SCALE */
 .social-icons {
   display: flex;
   gap: 16px;
-  padding-right: 8px;
+  padding-right: 8px; /* Extra padding derecha para los iconos sociales */
 }
 
 .social-icons img {
@@ -76,10 +67,9 @@ body {
   flex-direction: column;
   align-items: center;
   background: none;
-  padding: 0 16px;
 }
 
-/* HERO CONTENT */
+/* HERO SPACING FROM TOP */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -92,11 +82,10 @@ body {
   display: block;
   margin-bottom: 36px;
   margin-top: 0;
-  max-width: 85vw;
-  height: auto;
+  max-width: 90vw; /* Ensure game logo fits mobile screen */
 }
 
-/* BUTTONS */
+/* COLUMN BUTTONS */
 .hero-buttons {
   display: flex;
   flex-direction: column;
@@ -105,14 +94,13 @@ body {
   align-items: center;
 }
 
-.btn img {
+.hero-buttons .btn img {
   display: block;
+  max-width: 85vw; /* Ensure buttons fit mobile screen */
   transition: transform 0.18s ease-in-out;
-  max-width: 60px;
-  height: auto;
 }
 
-/* Animations */
+/* Animaciones controladas por JS con clases */
 .animate-in {
   animation: double-zoom-bounce 0.6s ease-in-out forwards;
 }
@@ -121,6 +109,7 @@ body {
   animation: double-zoom-bounce-reverse 0.6s ease-in-out forwards;
 }
 
+/* Keyframes de entrada */
 @keyframes double-zoom-bounce {
   0% { transform: scale(1); }
   25% { transform: scale(1.12); }
@@ -129,6 +118,7 @@ body {
   100% { transform: scale(1.12); }
 }
 
+/* Keyframes de salida */
 @keyframes double-zoom-bounce-reverse {
   0% { transform: scale(1.12); }
   25% { transform: scale(1.14); }
@@ -137,16 +127,15 @@ body {
   100% { transform: scale(1); }
 }
 
-/* RESPONSIVE MOBILE */
-@media only screen and (max-width: 650px) and (orientation: portrait) {
+/* RESPONSIVE MOBILE STYLES */
+@media (max-width: 650px) {
   body {
-    background-image: none !important;
-    background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom)) !important;
+    background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom));
   }
   .hero-container {
     min-height: calc(100vh - 55px);
     background: none;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     padding-top: 24px;
     width: 100%;
@@ -157,10 +146,9 @@ body {
     margin-top: 9px;
   }
   .game-logo {
-    max-width: 85vw;
+    max-width: 85vw; /* Ensure game logo fits mobile screen */
     margin-top: 0;
     margin-bottom: 28px;
-    height: auto;
   }
   .hero-buttons {
     flex-direction: column;
@@ -168,21 +156,18 @@ body {
     margin-top: 0;
     align-items: center;
   }
-  #logo-normal {
-    display: none !important;
+  .hero-buttons .btn img {
+    max-width: 80vw; /* Ensure buttons fit mobile screen */
   }
-  #logo-mobile {
-    display: block !important;
-    max-width: 90px;
-    height: auto;
-  }
+  #logo-normal { display: none; }
+  #logo-mobile { display: block; }
   .studio-logo {
     height: 33px;
     width: auto;
   }
   .social-icons img {
-    max-width: 28px !important;
-    height: auto !important;
+    height: 28px;
+    width: auto;
   }
   .main-header {
     padding: 0 24px;
@@ -192,9 +177,5 @@ body {
   }
   .social-icons {
     padding-right: 6px;
-  }
-  .btn img {
-    max-width: 48px !important;
-    height: auto !important;
   }
 }
