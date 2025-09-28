@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mimmox - UMAMI Press Kit</title>
+  <link rel="stylesheet" href="styles-presskit.css" />
+  <style>
+    /* Ajustes de jerarquía de encabezados para coherencia visual */
+    h1 {
+      font-size: 2.35rem;
+      margin-bottom: 0.3em;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.25em;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2em;
+    }
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2em;
+    }
+
+    /* Layout columnas para texto principal */
+    .presskit-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem;
+    }
+    .content-columns {
+      flex: 1 1 100%;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.1rem;
+    }
+    .column-left,
+    .column-right {
+      flex: 1 1 400px;
+    }
+
+    /* Ajuste para la línea de descarga, centrada horizontalmente */
+    .download-links {
+      text-align: center;
+      margin: 1em 0 2em;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .download-links a {
+      margin: 0 0.5rem;
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Lightbox modal */
+    #lightbox {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      padding: 1rem 4rem;
+      box-sizing: border-box;
+    }
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 4px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    }
+    #lightbox-title {
+      color: white;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .close-btn {
+      align-self: flex-end;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      user-select: none;
+    }
+    .prev-btn, .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      padding: 0 1rem;
+      user-select: none;
+    }
+    .prev-btn {
+      left: 1rem;
+    }
+    .next-btn {
+      right: 1rem;
+    }
+    .download-btn {
+      margin-top: 0.75rem;
+      background-color: #ffd46b;
+      color: #333;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .download-btn:hover {
+      background-color: #e6bf60;
+    }
+
+    /* Video trailer */
+    .video-container {
+      position: relative;
+      padding-bottom: 0; /* 16:9 Aspect Ratio */
+      height: 495px;
+      max-width: 880px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Grid vertical centering de imágenes */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+    .grid img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      object-fit: contain;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .grid img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Para gifs columna igual que grid */
+    .gifs-column {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <a href="https://mimmox.com" class="logo-link">
+      <img src="images/mimmox.png" alt="Mimmox Logo" class="studio-logo" id="logo-normal" />
+      <img src="images/mimmox_m.png" alt="Mimmox Logo Square" class="studio-logo" id="logo-mobile" />
+    </a>
+    <div class="social-icons">
+      <a href="https://x.com/mimmoxgames" target="_blank" rel="noopener"><img src="images/x.png" alt="X" /></a>
+      <a href="https://bsky.app/profile/mimmox.bsky.social" target="_blank" rel="noopener"><img src="images/bluesky.png" alt="Bluesky" /></a>
+      <a href="https://www.tiktok.com/@mimmoxgames" target="_blank" rel="noopener"><img src="images/tiktok.png" alt="Tiktok" /></a>
+      <a href="https://www.instagram.com/mimmoxgames/" target="_blank" rel="noopener"><img src="images/instagram.png" alt="Instagram" /></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="presskit-container">
+      <div class="content-columns">
+        <div class="column-left">
+          <section id="studio-info">
+            <h2>About Mimmox</h2>
+            <p>
+              Mimmox, founded in 2024, is an indie game studio crafting cozy, heartwarming experiences. Our games aim to soothe and delight, helping players unwind. UMAMI is our debut title, kicking off our mission to create playful, soulful games that comfort the spirit.
+            </p>
+          </section>
+
+          <section id="game-info">
+            <h2>About UMAMI</h2>
+            <p>UMAMI is a cozy 3D food puzzle game with handcrafted levels. Tinker, rotate, and fit blocks to build food towers and cakes in a soothing atmosphere.</p>
+          </section>
+        </div>
+
+        <div class="column-right">
+          <section id="contact-links">
+            <h2>Contact &amp; Useful Links</h2>
+            <ul style="list-style:none; padding-left:0;">
+              <li><b>Email:</b> <a href="mailto:contact@mimmox.com">contact@mimmox.com</a></li>
+              <li><b>Discord:</b> <a href="https://discord.gg/BnA8CsPAtB" target="_blank" rel="noopener">https://discord.gg/BnA8CsPAtB</a></li>
+              <li><b>X:</b> <a href="https://x.com/MimmoxGames" target="_blank" rel="noopener">https://x.com/MimmoxGames</a></li>
+              <li><b>Bluesky:</b> <a href="https://bsky.app/profile/mimmox.bsky.social" target="_blank" rel="noopener">https://bsky.app/profile/mimmox.bsky.social</a></li>
+              <li><b>Instagram:</b> <a href="https://www.instagram.com/mimmoxgames/" target="_blank" rel="noopener">https://www.instagram.com/mimmoxgames/</a></li>
+              <li><b>YouTube:</b> <a href="https://www.youtube.com/@MimmoxGames" target="_blank" rel="noopener">https://www.youtube.com/@MimmoxGames</a></li>
+              <li><b>Steam Page:</b> <a href="https://store.steampowered.com/app/3669360/UMAMI/" target="_blank" rel="noopener">https://store.steampowered.com/app/3669360/UMAMI/</a></li>
+              <li><b>Press-kit (Google Drive):</b> <a href="https://drive.google.com/drive/folders/1otMe6R33Rixe_E_r125upteV3uJf9zrd" target="_blank" rel="noopener">https://drive.google.com/drive/folders/1otMe6R33Rixe_E_r125upteV3uJf9zrd</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <div class="content-columns">
+        <div class="column-left">
+          <section id="key-features">
+            <h2>UMAMI Key Features</h2>
+            <ul>
+              <li>15 hand-painted puzzles</li>
+              <li>Tactile gameplay: Observe → Tinker → Fit → Solve</li>
+              <li>Soothing sound design and music</li>
+              <li>Cute animals and hidden secrets</li>
+              <li>No timers, no pressure: cozy vibes</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="column-right">
+          <section id="specs">
+            <h2>UMAMI Specs</h2>
+            <ul>
+              <li><strong>Platform:</strong> Steam (PC)</li>
+              <li><strong>Launch:</strong> November 17, 2025</li>
+              <li><strong>Languages:</strong> 13 (listed on Steam)</li>
+              <li><strong>Playtime:</strong> 4–8 hours</li>
+              <li><strong>Achievements:</strong> Yes</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="presskit-container">
+      <section id="media">
+        <h1>Media</h1>
+
+        <h2>Trailer</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/2521UmubkRU?rel=0&modestbranding=1"
+            title="UMAMI Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="download-links">
+          <a href="https://drive.google.com/file/d/1rTNWVc8HYu9PIY7ouEoPhzX-DYv1CocI/view?usp=drive_link" target="_blank" rel="noopener">Download 1920x1080</a> |
+          <a href="https://drive.google.com/file/d/1O2zigs2HoXzPUjJSZ-wa4lxicGzrvRrO/view?usp=drive_link" target="_blank" rel="noopener">Download 3840x2160</a> |
+          <a href="https://drive.google.com/file/d/1HmYyvys6WBSXYMgTScRldeXmrMgWLtu8/view?usp=drive_link" target="_blank" rel="noopener">Download 1920x1080 Japanese</a> |
+          <a href="https://drive.google.com/file/d/1Y9RSdSAF1yzVQUvnWztQM5PpE2yJ0ark/view?usp=drive_link" target="_blank" rel="noopener">Download 3840x2160 Japanese</a>
+        </div>
+
+        <h2>Screenshots</h2>
+        <div class="grid screenshots-grid">
+          <img src="images/screenshots/01.png" alt="Screenshot 01" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/02.png" alt="Screenshot 02" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/03.png" alt="Screenshot 03" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/04.png" alt="Screenshot 04" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/05.png" alt="Screenshot 05" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/06.png" alt="Screenshot 06" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/07.png" alt="Screenshot 07" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/08.png" alt="Screenshot 08" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/09.png" alt="Screenshot 09" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/10.png" alt="Screenshot 10" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/11.png" alt="Screenshot 11" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/12.png" alt="Screenshot 12" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/13.png" alt="Screenshot 13" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/14.png" alt="Screenshot 14" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/15.png" alt="Screenshot 15" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/16.png" alt="Screenshot 16" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/17.png" alt="Screenshot 17" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/18.png" alt="Screenshot 18" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/19.png" alt="Screenshot 19" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/20.png" alt="Screenshot 20" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/21.png" alt="Screenshot 21" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/22.png" alt="Screenshot 22" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/23.png" alt="Screenshot 23" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/24.png" alt="Screenshot 24" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/25.png" alt="Screenshot 25" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/26.png" alt="Screenshot 26" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/27.png" alt="Screenshot 27" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/28.png" alt="Screenshot 28" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/29.png" alt="Screenshot 29" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/30.png" alt="Screenshot 30" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/31.png" alt="Screenshot 31" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/32.png" alt="Screenshot 32" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/33.png" alt="Screenshot 33" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/34.png" alt="Screenshot 34" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/35.png" alt="Screenshot 35" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/36.png" alt="Screenshot 36" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h3>Japanese</h3>
+        <div class="grid screenshots-grid">
+          <img src="images/screenshots/jp/01-jp.png" alt="Japanese Screenshot 01" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/jp/02-jp.png" alt="Japanese Screenshot 02" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/jp/03-jp.png" alt="Japanese Screenshot 03" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/jp/04-jp.png" alt="Japanese Screenshot 04" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/jp/05-jp.png" alt="Japanese Screenshot 05" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/jp/06-jp.png" alt="Japanese Screenshot 06" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h3>Chinese</h3>
+        <div class="grid screenshots-grid">
+          <img src="images/screenshots/ch/01-ch.png" alt="Chinese Screenshot 01" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/ch/02-ch.png" alt="Chinese Screenshot 02" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/ch/03-ch.png" alt="Chinese Screenshot 03" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/ch/04-ch.png" alt="Chinese Screenshot 04" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/ch/05-ch.png" alt="Chinese Screenshot 05" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/ch/06-ch.png" alt="Chinese Screenshot 06" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h3>Korean</h3>
+        <div class="grid screenshots-grid">
+          <img src="images/screenshots/kr/01-kr.png" alt="Korean Screenshot 01" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/kr/02-kr.png" alt="Korean Screenshot 02" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/kr/03-kr.png" alt="Korean Screenshot 03" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/kr/04-kr.png" alt="Korean Screenshot 04" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/kr/05-kr.png" alt="Korean Screenshot 05" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/screenshots/kr/06-kr.png" alt="Korean Screenshot 06" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h2>Gifs</h2>
+        <div class="gifs-column">
+          <img src="images/gifs/umami_01.gif" alt="Gif 01" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/gifs/umami_02.gif" alt="Gif 02" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/gifs/umami_03.gif" alt="Gif 03" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h2>Key Art</h2>
+        <div class="grid keyart-grid">
+          <img src="images/keyart/UMAMI_KeyArt_920x430_a.png" alt="Key Art 920x430 a" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/keyart/UMAMI_KeyArt_920x430_b.png" alt="Key Art 920x430 b" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/keyart/UMAMI_KeyArt_1280x720_a.png" alt="Key Art 1280x720 a" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/keyart/UMAMI_KeyArt_1280x720_b.png" alt="Key Art 1280x720 b" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/keyart/UMAMI_KeyArt_1920x1080_a.png" alt="Key Art 1920x1080 a" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/keyart/UMAMI_KeyArt_1920x1080_b.png" alt="Key Art 1920x1080 b" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+
+        <h2>Logos</h2>
+        <div class="grid logos-grid">
+          <img src="images/logos/MIMMOX_Logo.png" alt="Mimmox Logo" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/logos/UMAMI_Logo_HighRes.png" alt="UMAMI Logo High Res" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/logos/UMAMI_Logo.png" alt="UMAMI Logo" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-img-alt">
+    <span class="close-btn" onclick="closeLightbox()" aria-label="Close">&times;</span>
+    <span class="prev-btn" onclick="changeImage(-1)">❮</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span id="lightbox-title"></span>
+    <span class="next-btn" onclick="changeImage(1)">❯</span>
+    <a id="download-btn" href="" download class="download-btn">Download</a>
+  </div>
+
+  <script>
+    let images = Array.from(document.querySelectorAll('.grid img, .gifs-column img'));
+    let currentIndex = 0;
+
+    function openLightbox(src, alt) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const downloadBtn = document.getElementById('download-btn');
+      currentIndex = images.findIndex(img => img.src === src);
+      updateLightbox();
+      lightbox.style.display = 'flex';
+    }
+
+    function updateLightbox() {
+      const img = images[currentIndex];
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const downloadBtn = document.getElementById('download-btn');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxTitle.textContent = img.alt;
+      downloadBtn.href = img.src;
+      const extMatch = img.src.match(/\.(\w+)(?:\?|$)/);
+      const ext = extMatch ? extMatch[1] : 'png';
+      downloadBtn.download = img.alt.replace(/\s/g, '_') + '.' + ext;
+    }
+
+    function changeImage(dir) {
+      currentIndex = (currentIndex + dir + images.length) % images.length;
+      updateLightbox();
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = '';
+      lightboxImg.alt = '';
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      } else if (event.key === 'ArrowLeft') {
+        changeImage(-1);
+      } else if (event.key === 'ArrowRight') {
+        changeImage(1);
+      }
+    });
+  </script>
+</body>
+</html>
