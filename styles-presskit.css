@@ -160,6 +160,47 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ESTILO ACORDEÓN PARA JAPANESE, CHINESE Y KOREAN */
+.accordion details {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  background: white;
+}
+
+.accordion summary {
+  background: #f7f7f7;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  outline: none;
+  user-select: none;
+}
+
+/* Flecha indicando cerrado */
+.accordion summary::after {
+  content: "▸";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  font-size: 1.2rem;
+}
+
+/* Flecha rota indicando abierto */
+.accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Quitar marcador predeterminado en webkit */
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
 /* RESPONSIVE STYLES */
 @media (max-width: 1024px) {
   .grid {
@@ -187,8 +228,8 @@ section {
     height: 28px;
   }
 
-.video-container {
+  .video-container {
     max-width: 100%;
-    aspect-ratio: 16/9; /* se adapta automático sin ratios incorrectos */
+    aspect-ratio: 16/9;
   }
 }
