@@ -133,33 +133,35 @@ body {
     background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom));
   }
   .hero-container {
-    min-height: calc(100vh - 55px);
+    height: auto; /* Ajustado para eliminar espacio extra */
     background: none;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 24px;
+    padding: 24px 0 0 0; /* Sin padding inferior */
     width: 100%;
   }
   .hero-content {
     align-items: center;
     width: 100%;
     margin-top: 9px;
+    padding-bottom: 24px; /* Pequeño padding inferior opcional */
   }
   .game-logo {
-    max-width: 85vw; /* Ensure game logo fits mobile screen */
+    max-width: 85vw;
     margin-top: 0;
-    margin-bottom: 40px; /* Adjusted spacing between logo and first button */
+    margin-bottom: 50px;
   }
   .hero-buttons {
     flex-direction: column;
     gap: 22px;
     margin-top: 0;
     align-items: center;
+    margin-bottom: 0; /* Sin margen inferior extra */
   }
   .hero-buttons .btn img {
-    max-width: 80vw; /* Match button size proportionally to logo */
-    width: 95%; /* Ensure buttons take full available width */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 80vw;
+    width: 95%;
+    height: auto;
   }
   #logo-normal { display: none; }
   #logo-mobile { display: block; }
