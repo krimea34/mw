@@ -20,7 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 36px; /* Más espacio horizontal para logo y redes */
+  padding: 0 36px;
   position: relative;
 }
 
@@ -28,7 +28,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 8px; /* Padding extra izquierdo solo para logo */
+  padding-left: 8px;
 }
 
 /* LOGOS HEADER - MAX SCALE */
@@ -45,7 +45,7 @@ body {
 .social-icons {
   display: flex;
   gap: 16px;
-  padding-right: 8px; /* Extra padding derecha para los iconos sociales */
+  padding-right: 8px;
 }
 
 .social-icons img {
@@ -67,6 +67,9 @@ body {
   flex-direction: column;
   align-items: center;
   background: none;
+  height: auto;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* HERO SPACING FROM TOP */
@@ -82,7 +85,7 @@ body {
   display: block;
   margin-bottom: 36px;
   margin-top: 0;
-  max-width: 90vw; /* Ensure game logo fits mobile screen */
+  max-width: 90vw;
 }
 
 /* COLUMN BUTTONS */
@@ -92,15 +95,17 @@ body {
   gap: 16px;
   margin-top: 0;
   align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .hero-buttons .btn img {
   display: block;
-  max-width: 85vw; /* Ensure buttons fit mobile screen */
+  max-width: 85vw;
   transition: transform 0.18s ease-in-out;
 }
 
-/* Animaciones controladas por JS con clases */
+/* JS Animations */
 .animate-in {
   animation: double-zoom-bounce 0.6s ease-in-out forwards;
 }
@@ -109,7 +114,7 @@ body {
   animation: double-zoom-bounce-reverse 0.6s ease-in-out forwards;
 }
 
-/* Keyframes de entrada */
+/* Keyframes start */
 @keyframes double-zoom-bounce {
   0% { transform: scale(1); }
   25% { transform: scale(1.10); }
@@ -118,7 +123,7 @@ body {
   100% { transform: scale(1.10); }
 }
 
-/* Keyframes de salida */
+/* Keyframes end */
 @keyframes double-zoom-bounce-reverse {
   0% { transform: scale(1.10); }
   25% { transform: scale(1.12); }
@@ -133,18 +138,18 @@ body {
     background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom));
   }
   .hero-container {
-    height: auto; /* Ajustado para eliminar espacio extra */
+    height: auto;
     background: none;
     align-items: center;
     justify-content: flex-start;
-    padding: 24px 0 0 0; /* Sin padding inferior */
+    padding: 24px 0 0 0;
     width: 100%;
   }
   .hero-content {
     align-items: center;
     width: 100%;
     margin-top: 9px;
-    padding-bottom: 24px; /* Pequeño padding inferior opcional */
+    padding-bottom: 24px;
   }
   .game-logo {
     max-width: 85vw;
@@ -156,7 +161,7 @@ body {
     gap: 22px;
     margin-top: 0;
     align-items: center;
-    margin-bottom: 0; /* Sin margen inferior extra */
+    margin-bottom: 0;
   }
   .hero-buttons .btn img {
     max-width: 80vw;
