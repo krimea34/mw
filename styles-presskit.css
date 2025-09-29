@@ -12,7 +12,7 @@
 
 body {
   font-family: 'Inter', Arial, sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom));
   color: var(--text-color);
   line-height: 1.6;
@@ -218,7 +218,7 @@ section {
   }
 
   .main-header {
-    padding: 0 24px;
+    padding: 0 16px;
   }
 
   #logo-normal { display: none; }
