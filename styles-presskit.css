@@ -160,7 +160,7 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ESTILO ACORDEÓN PARA JAPANESE, CHINESE Y KOREAN */
+/* ACCORDION FOR JAPANESE, CHINESE & KOREAN */
 .accordion details {
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -180,7 +180,7 @@ section {
   user-select: none;
 }
 
-/* Flecha indicando cerrado */
+/* Arrow meaning closed */
 .accordion summary::after {
   content: "▸";
   position: absolute;
@@ -191,12 +191,11 @@ section {
   font-size: 1.2rem;
 }
 
-/* Flecha rota indicando abierto */
+/* Arrow meaning open */
 .accordion details[open] summary::after {
   transform: translateY(-50%) rotate(90deg);
 }
 
-/* Quitar marcador predeterminado en webkit */
 .accordion summary::-webkit-details-marker {
   display: none;
 }
