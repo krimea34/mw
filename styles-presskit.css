@@ -143,6 +143,26 @@ section {
   transform: scale(1.05);
 }
 
+.screenshots-grid .shot {
+  aspect-ratio: 16 / 9;
+  background: #f6f1ec;
+  border-radius: 8px;
+}
+
+.screenshots-grid .shot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  opacity: 0;
+  box-shadow: none;
+  transition: opacity 0.18s ease, transform 0.2s ease;
+}
+
+.screenshots-grid .shot img.is-loaded {
+  opacity: 1;
+}
+
 .gifs-column {
   display: flex;
   flex-direction: column;
